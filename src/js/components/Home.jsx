@@ -1,26 +1,55 @@
 import React from "react";
 
 //include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import Header from './header';
+import Card from './card';
+import Navbar from "./navbar";
 
-//create your first component
+
 const Home = () => {
-	return (
-		<div className="text-center">
-            
+	const arrobj = [
+		{
+			id: 1,
+			title: "Card1",
+			color: "black",
+			Image: "src/img/rigo-baby.jpg",
+		},
+		{
+			id: 2,
+			title: "Card2",
+			color: "yellow",
+			Image: "src/img/rigo-baby.jpg",
+		},
+		{
+			id: 3,
+			title: "Card3",
+			color: "red",
+			Image: "src/img/rigo-baby.jpg",
+		},
+		{
+			id: 4,
+			title: "Card4",
+			color: "blue",
+			Image: "src/img/rigo-baby.jpg",
+		}
+	]
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+	return (
+		<div>
+
+			<Navbar />
+
+			<Header />
+
+
+			<div className='container'>
+				<div className="row">
+					{
+						arrobj.map(item => (<Card key={item.id} title={item.title} image={item.image} color={item.color} />))
+					}
+				</div>
+			</div>
+
 		</div>
 	);
 };
